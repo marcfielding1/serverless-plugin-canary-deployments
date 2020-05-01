@@ -5,7 +5,8 @@
   "main": "handler.js",
   "dependencies": {
     "aws-sdk": "^2.203.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "serverless": "^1.26.1",
@@ -16,8 +17,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "npm un --no-save serverless-plugin-canary-deployments && npm pack ../ && npm i --no-save serverless-plugin-canary-deployments-0.4.1.tgz && sls package -s dev",
     "deploy": "npm un --no-save serverless-plugin-canary-deployments && npm pack ../ && npm i --no-save serverless-plugin-canary-deployments-0.4.1.tgz && sls deploy -s dev",
-    "populate-table": "node ./scripts/populate-test-table"
+    "populate-table": "node ./scripts/populate-test-table",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "snyk": true
 }
