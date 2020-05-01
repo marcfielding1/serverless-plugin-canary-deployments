@@ -8,7 +8,9 @@
   "main": "serverless-plugin-canary-deployments.js",
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha $(find ./ -name '*.test.js' -not -path '.*/node_modules/*')",
-    "watch": "NODE_ENV=test ./node_modules/mocha/bin/mocha -w $(find ./ -name '*.test.js' -not -path '*/node_modules/*')"
+    "watch": "NODE_ENV=test ./node_modules/mocha/bin/mocha -w $(find ./ -name '*.test.js' -not -path '*/node_modules/*')",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "David García <davidgf1987@gmail.com>",
   "contributors": [
@@ -22,7 +24,8 @@
   "dependencies": {
     "flat": "^4.0.0",
     "lodash": "^4.17.12",
-    "omit-empty": "^0.4.1"
+    "omit-empty": "^0.4.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -45,5 +48,6 @@
     "canary",
     "gradual",
     "deployments"
-  ]
+  ],
+  "snyk": true
 }
